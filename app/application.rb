@@ -10,7 +10,7 @@ class Application
       
       found_item &&= @@items.detect do |i|
         i.name == item_name
-      end
+      end[0]
       
       if found_item
         resp.write(found_item.price)
