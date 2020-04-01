@@ -5,9 +5,11 @@ class Application
     resp = Rack::Response.new()
     req = Rack::Request.new(env)
     if req.path.include?("/items/")
-      item = req.path.split("/items/").last
-      if @@items.include?(item)
-        resp.write()
+      item_name = req.path.split("/items/").last
+      @@items.each do |i|
+        if i.name == item_name
+          resp.write(i.price)
+          
       
   end
 end
