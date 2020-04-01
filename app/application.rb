@@ -5,7 +5,7 @@ class Application
     resp = Rack::Response.new()
     req = Rack::Request.new(env)
     
-    if req.path.include?("/items/")
+    if req.path.split("/").first == "items"
       found_item = nil
       item_name = req.path.split("/items/").last
       @@items.each do |i|
