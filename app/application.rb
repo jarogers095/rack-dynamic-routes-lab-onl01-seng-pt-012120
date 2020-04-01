@@ -7,7 +7,9 @@ class Application
     
     if req.path.match("/items/")
       item_name = req.path.split("/items/").last
-      found_item &&= @@items.detect {|i|i.name == item_name
+      
+      found_item &&= @@items.detect do |i|
+        i.name == item_name
       end
       
       if found_item
