@@ -6,12 +6,8 @@ class Application
     req = Rack::Request.new(env)
     
     if req.path.match("/items/")
-      found_item = nil
       item_name = req.path.split("/items/").last
-      @@items.each do |i|
-        if i.name == item_name
-          found_item = i
-        end
+      found_item &&= @@items.detect {|i|i.name == item_name
       end
       
       if found_item
