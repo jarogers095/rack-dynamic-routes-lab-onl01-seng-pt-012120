@@ -24,5 +24,6 @@ class Application
       resp.status = 404
       resp.write("File not found")
     end
+    resp.finish
   end
 end
